@@ -1,0 +1,237 @@
+════════════════════════════════════════════════════════════════
+   A.Y.P.I SERTIFIKAT BOT - RENDER.COM GA DEPLOY QILISH
+════════════════════════════════════════════════════════════════
+
+📋 KERAKLI NARSALAR:
+════════════════════════════════════════════════════════════════
+✅ GitHub akkaunt (github.com)
+✅ Render.com akkaunt (render.com)
+✅ Bot token (BotFather'dan)
+✅ Admin ID (Telegram)
+
+════════════════════════════════════════════════════════════════
+🚀 QADAM 1: GITHUB REPOSITORY YARATISH
+════════════════════════════════════════════════════════════════
+
+1. GitHub'ga kiring (github.com)
+
+2. Yangi repository yarating:
+   - O'ng yuqori burchakda "+" tugmasi → "New repository"
+   - Repository nomi: aypi-sertifikat-bot
+   - Description: A.Y.P.I Sertifikat Bot
+   - Public yoki Private (ixtiyoriy)
+   - ✅ "Add a README file" ni BELGILAMANG!
+   - "Create repository" ni bosing
+
+3. Repository yaratildi!
+
+════════════════════════════════════════════════════════════════
+📤 QADAM 2: FAYLLARNI GITHUB'GA YUKLASH
+════════════════════════════════════════════════════════════════
+
+USUL A - GitHub Web Interface orqali (ODDIY):
+─────────────────────────────────────────────────────────────
+
+1. Yangi ochilgan repository'da:
+   - "uploading an existing file" ni bosing
+
+2. Quyidagi fayllarni tortib tashlang (drag & drop):
+   ✅ bot.py
+   ✅ requirements.txt
+   ✅ Procfile
+   ✅ render.yaml
+   ✅ .gitignore
+   ✅ .env.example
+   ✅ README.md
+
+3. Pastda:
+   - Commit message: "Initial commit"
+   - "Commit changes" ni bosing
+
+4. Barcha fayllar yuklandi! ✅
+
+
+USUL B - Git Command Line orqali (ILOVALIROQ):
+─────────────────────────────────────────────────────────────
+
+Windows Command Prompt'da:
+
+1. Fayllar papkasiga o'ting:
+   cd C:\aypi_sertifikat_bot
+
+2. Git repository'ni boshlang:
+   git init
+
+3. Barcha fayllarni qo'shing:
+   git add .
+
+4. Commit qiling:
+   git commit -m "Initial commit"
+
+5. GitHub bilan bog'lang:
+   git remote add origin https://github.com/YOUR_USERNAME/aypi-sertifikat-bot.git
+   
+   (YOUR_USERNAME ni o'zingizniki bilan almashtiring!)
+
+6. Push qiling:
+   git branch -M main
+   git push -u origin main
+
+7. GitHub username va password so'ralsa kiriting
+   (Password o'rniga Personal Access Token kerak bo'lishi mumkin)
+
+════════════════════════════════════════════════════════════════
+🌐 QADAM 3: RENDER.COM GA DEPLOY QILISH
+════════════════════════════════════════════════════════════════
+
+1. Render.com'ga kiring (https://render.com)
+
+2. GitHub bilan ulanish:
+   - "Get Started" yoki "Dashboard" ga o'ting
+   - "New +" tugmasini bosing
+   - "Web Service" ni tanlang
+
+3. GitHub repository'ni ulang:
+   - "Connect a repository" bo'limida
+   - GitHub'ni tanlang
+   - Agar birinchi marta bo'lsa "Connect GitHub" ni bosing
+   - aypi-sertifikat-bot repository'ni toping
+   - "Connect" ni bosing
+
+4. Sozlamalarni kiriting:
+
+   Name: aypi-sertifikat-bot
+   
+   Region: Singapore (yoki Oregon)
+   
+   Branch: main
+   
+   Runtime: Python 3
+   
+   Build Command: pip install -r requirements.txt
+   
+   Start Command: python bot.py
+   
+   Instance Type: Free
+
+5. Environment Variables qo'shing:
+   - "Add Environment Variable" tugmasini bosing
+   
+   ┌─────────────┬────────────────────────────────────────────┐
+   │ Key         │ Value                                      │
+   ├─────────────┼────────────────────────────────────────────┤
+   │ BOT_TOKEN   │ 8352576394:AAFYj40ivuNoW0NRfI4nQ-xUEE... │
+   │ ADMIN_ID    │ 817765302                                  │
+   └─────────────┴────────────────────────────────────────────┘
+   
+   BOT_TOKEN: Sizning bot tokeningiz
+   ADMIN_ID: Sizning Telegram ID ingiz
+
+6. "Create Web Service" ni bosing
+
+7. Deploy boshlanadi! ⏳
+   - Loglarni ko'rishingiz mumkin
+   - "Deploy successful" chiqguncha kuting (3-5 daqiqa)
+
+8. Bot ishga tushdi! ✅
+
+════════════════════════════════════════════════════════════════
+🔄 QADAM 4: CRON-JOB.ORG SOZLASH (UYGOQ TUTISH)
+════════════════════════════════════════════════════════════════
+
+Render Free tier'da bot 15 daqiqadan keyin uxlaydi.
+Cron-Job.org uni uyg'oq tutadi!
+
+1. Cron-Job.org'ga kiring (https://cron-job.org)
+
+2. Akkaunt yarating yoki kiring
+
+3. Yangi Cron Job yarating:
+   - "Create cronjob" tugmasini bosing
+
+4. Sozlamalar:
+
+   Title: A.Y.P.I Bot Keep Alive
+   
+   Address/URL: https://aypi-sertifikat-bot.onrender.com
+                (Render'dan olingan URL)
+   
+   Execution schedule:
+   - Every 5 minutes
+   - yoki Every 10 minutes (ixtiyoriy)
+   
+   Execution time:
+   - Enable: ✅
+   - Time zone: Asia/Tashkent
+   
+   Notifications: Email (ixtiyoriy)
+
+5. "Create cronjob" ni bosing
+
+6. Tayyor! ✅
+
+════════════════════════════════════════════════════════════════
+✅ TEKSHIRISH
+════════════════════════════════════════════════════════════════
+
+1. Telegram'da @aypisertifikatbot ni oching
+
+2. /start ni bosing
+
+3. Bot javob berishligi kerak! ✅
+
+4. Agar javob bermasa:
+   - Render.com'da Logs'ni tekshiring
+   - Environment Variables to'g'ri kiritilganmi tekshiring
+   - Manual Deploy tugmasini bosib qayta deploy qiling
+
+════════════════════════════════════════════════════════════════
+📊 RENDER.COM DASHBOARD
+════════════════════════════════════════════════════════════════
+
+Render Dashboard'da ko'rishingiz mumkin:
+
+✅ Logs - Bot loglarini ko'rish
+✅ Metrics - CPU/Memory ishlatilishi
+✅ Environment - Environment variables
+✅ Settings - Sozlamalar
+✅ Manual Deploy - Qayta deploy qilish
+
+════════════════════════════════════════════════════════════════
+🔧 KELAJAKDA YANGILASH
+════════════════════════════════════════════════════════════════
+
+Agar bot.py ni o'zgartirsangiz:
+
+1. GitHub'ga yangilangan faylni yuklang:
+   - Repository'ga o'ting
+   - bot.py ni bosing
+   - Edit (qalamcha) tugmasini bosing
+   - O'zgartirishlarni kiriting
+   - "Commit changes" ni bosing
+
+2. Render avtomatik yangilanadi! ✅
+   - Yoki Manual Deploy tugmasini bosishingiz mumkin
+
+════════════════════════════════════════════════════════════════
+⚠️ MUHIM ESLATMALAR
+════════════════════════════════════════════════════════════════
+
+❗ Bot tokenini HECH KIMGA BERMANG!
+❗ Environment Variables'ni to'g'ri kiriting
+❗ Free tier oyiga 750 soat (31 kun) bepul
+❗ Agar bot uxlasa - Cron-Job.org'ni tekshiring
+❗ Database va Excel fayllar Render'da vaqtincha saqlanadi
+   (Backup uchun /export ni muntazam ishlating!)
+
+════════════════════════════════════════════════════════════════
+✅ TAYYOR!
+════════════════════════════════════════════════════════════════
+
+Bot 24/7 ishlaydi! 🎉
+
+Savollar bo'lsa:
+- Render Docs: https://render.com/docs
+- Cron-Job Support: https://cron-job.org/en/faq/
+
+Omad! 🚀
