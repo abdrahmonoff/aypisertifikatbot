@@ -937,6 +937,28 @@ async def main():
     logger.info("🤖 Sertifikat Bot ishga tushdi!")
     logger.info(f"📊 Excel fayl: {EXCEL_FILE}")
     await bot.delete_webhook(drop_pending_updates=True)
+    
+    # HTTP server for Render.com (keeps port open)
+    from aiohttp import web
+    
+    async def health_check(request):
+        return web.Response(text="Bot is running!")
+    
+    app = web.Application()
+    app.router.add_get('/', health_check)
+    app.router.add_get('/health', health_check)
+    
+    runner = web.AppRunner(app)
+    await runner.setup()
+    
+    # Render uses PORT environment variable
+    port = int(os.getenv('PORT', 10000))
+    site = web.TCPSite(runner, '0.0.0.0', port)
+    await site.start()
+    
+    logger.info(f"🌐 HTTP server running on port {port}")
+    
+    # Start bot polling
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
