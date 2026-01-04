@@ -1,0 +1,315 @@
+════════════════════════════════════════════════════════════════
+        A.Y.P.I SERTIFIKAT BOT - TO'LIQ FUNKSIYALAR
+════════════════════════════════════════════════════════════════
+
+📋 FOYDALANUVCHI FUNKSIYALARI
+════════════════════════════════════════════════════════════════
+
+1️⃣ RO'YXATDAN O'TISH
+────────────────────────────────────────────────────────────────
+✅ /start - Botni boshlash
+✅ [Sertifikat olish] - Jarayonni boshlash
+✅ Jiddiy ogohlantirish o'qish
+✅ [Roziman, davom etaman] - Shartlarni qabul qilish
+✅ Ism-Familiya kiritish (Lotin, Katta harflar)
+✅ 3 qatorli ma'lumot:
+   • Guruh nomi
+   • Telefon raqami
+   • Telegram username
+✅ Ma'lumotlarni tasdiqlash
+✅ Arizani yuborish
+
+2️⃣ HIMOYA TIZIMI
+────────────────────────────────────────────────────────────────
+🛡️ Telegram ID tekshirish - Faqat 1 marta
+🛡️ Dublikat aniqlash - Qayta ariza mumkin emas
+🛡️ Jiddiy ogohlantirish - Jinoyat kodeksi
+🛡️ Status ko'rsatish - Arizaning holati
+
+3️⃣ SERTIFIKAT QABUL QILISH
+────────────────────────────────────────────────────────────────
+📜 PNG/JPG formatda
+🎉 Tabrik xabari
+💙 Oybek Bozorov va A.Y.P.I jamoasidan
+
+════════════════════════════════════════════════════════════════
+👨‍💼 ADMIN FUNKSIYALARI
+════════════════════════════════════════════════════════════════
+
+4️⃣ ADMIN KOMANDALAR
+────────────────────────────────────────────────────────────────
+/start       - Botni boshlash (admin menyu)
+/kutish      - Kutayotgan so'rovlar ro'yxati
+/statistika  - To'liq statistika
+/tasdiqlash  - So'rovni tasdiqlash (ID bilan)
+/rad         - So'rovni rad etish (ID bilan)
+/yuborish    - Sertifikat yuborish (ID bilan)
+/export      - Excel faylni yuklab olish
+
+5️⃣ YANGI SO'ROV KELGANDA
+────────────────────────────────────────────────────────────────
+✅ Push notification
+✅ To'liq ma'lumotlar:
+   • Ism-Familiya
+   • Guruh
+   • Telefon
+   • Telegram username
+   • User ID
+   • Ariza sanasi
+✅ Telefon dublikat ogohlantirishi (agar bor bo'lsa)
+✅ [Tasdiqlash] [Rad etish] tugmalari
+
+6️⃣ TASDIQLASH/RAD ETISH
+────────────────────────────────────────────────────────────────
+✅ [Tasdiqlash]:
+   → Foydalanuvchiga: "Tasdiqlandi!"
+   → Database: status = approved
+   → Admin: "Sertifikat yuboring"
+
+❌ [Rad etish]:
+   → Foydalanuvchiga: "Rad etildi"
+   → Database: status = rejected
+
+7️⃣ SERTIFIKAT YUBORISH (3 BOSQICH)
+────────────────────────────────────────────────────────────────
+BOSQICH 1 - Komanda:
+   /yuborish 15
+   → Bot: "PNG yuboring"
+
+BOSQICH 2 - Fayl yuborish:
+   → PNG yoki JPG
+   → RASM yoki FAYL sifatida
+   → Bot: [Yuborish] [Bekor]
+
+BOSQICH 3 - Tasdiqlash:
+   → [Yuborish] bosing
+   → Foydalanuvchiga yuboriladi
+   → Excel'ga qo'shiladi
+   → Database: status = sent
+
+8️⃣ KUTAYOTGAN SO'ROVLAR (/kutish)
+────────────────────────────────────────────────────────────────
+📋 KUTAYOTGAN SO'ROVLAR (3 ta)
+
+📋 So'rov #15
+👤 Ali Valiyev
+👥 Standart-Premium
+📅 04.01.2026 10:00
+[✅ Tasdiqlash] [❌ Rad etish]
+
+9️⃣ STATISTIKA (/statistika)
+────────────────────────────────────────────────────────────────
+📊 STATISTIKA
+
+📋 Jami so'rovlar: 50
+⏳ Kutayotgan: 5
+✅ Tasdiqlangan: 40
+❌ Rad etilgan: 5
+📤 Sertifikat yuborilgan: 35
+
+🔟 EXCEL EXPORT (/export)
+────────────────────────────────────────────────────────────────
+📊 Excel fayl (CSV format)
+✅ Faqat yuborilgan sertifikatlar
+✅ To'liq ma'lumotlar:
+   • № (Ariza raqami)
+   • Telegram ID
+   • Username
+   • Ism-Familiya
+   • Guruh
+   • Telefon
+   • Telegram username
+   • Ariza yaratilgan vaqt
+   • Tasdiqlangan vaqt
+   • Sertifikat yuborilgan vaqt
+
+════════════════════════════════════════════════════════════════
+🗄️ DATABASE FUNKSIYALARI
+════════════════════════════════════════════════════════════════
+
+1️⃣1️⃣ MA'LUMOTLAR SAQLASH
+────────────────────────────────────────────────────────────────
+✅ SQLite database (certificate_database.db)
+✅ Avtomatik yaratiladi
+✅ Jadval: certificate_requests
+
+Ustunlar:
+   • id - Ariza raqami
+   • user_id - Telegram ID
+   • username - Telegram username
+   • full_name - Ism-Familiya
+   • guruh - Guruh nomi
+   • telefon - Telefon raqami
+   • telegram_username - Username
+   • status - pending/approved/rejected/sent
+   • created_at - Yaratilgan vaqt
+   • approved_at - Tasdiqlangan vaqt
+   • certificate_sent_at - Yuborilgan vaqt
+
+1️⃣2️⃣ TEKSHIRISH FUNKSIYALARI
+────────────────────────────────────────────────────────────────
+✅ check_existing_user(user_id)
+   → Foydalanuvchi avval ariza yuborgan?
+
+✅ check_duplicate_phone(telefon, request_id)
+   → Bu telefon raqam avval ishlatilgan?
+
+✅ get_request(request_id)
+   → So'rov ma'lumotlarini olish
+
+✅ get_pending_requests()
+   → Barcha kutayotgan so'rovlar
+
+✅ get_statistics()
+   → To'liq statistika
+
+1️⃣3️⃣ DATABASE YANGILASH
+────────────────────────────────────────────────────────────────
+✅ mark_approved(request_id)
+   → Status: approved
+
+✅ mark_rejected(request_id)
+   → Status: rejected
+
+✅ mark_certificate_sent(request_id)
+   → Status: sent
+   → certificate_sent_at: hozirgi vaqt
+
+════════════════════════════════════════════════════════════════
+🔐 XAVFSIZLIK FUNKSIYALARI
+════════════════════════════════════════════════════════════════
+
+1️⃣4️⃣ FOYDALANUVCHI HIMOYASI
+────────────────────────────────────────────────────────────────
+🛡️ Telegram ID tekshirish
+   → Bir foydalanuvchi = Bir ariza
+
+🛡️ Dublikat aniqlash
+   → Qayta ariza yuborish mumkin emas
+
+🛡️ Jiddiy ogohlantirish
+   → Jinoyat kodeksi 168, 159-moddalar
+   → Qonuniy javobgarlik
+   → Qora ro'yxat ogohlantirishi
+
+1️⃣5️⃣ ADMIN HIMOYASI
+────────────────────────────────────────────────────────────────
+🔒 Admin ID tekshirish:
+   if msg.from_user.id != ADMIN_ID:
+       return
+
+🔒 Faqat admin:
+   • Tasdiqlash
+   • Rad etish
+   • Sertifikat yuborish
+   • Statistika ko'rish
+   • Excel export
+
+1️⃣6️⃣ INPUT VALIDATSIYA
+────────────────────────────────────────────────────────────────
+✅ Ism-Familiya:
+   • Kamida 5 belgi
+
+✅ Ma'lumotlar:
+   • Kamida 3 qator
+   • Har bir qator to'ldirilgan
+
+✅ Format tekshirish:
+   • Telefon
+   • Username
+
+════════════════════════════════════════════════════════════════
+🌐 DEPLOYMENT FUNKSIYALARI
+════════════════════════════════════════════════════════════════
+
+1️⃣7️⃣ 24/7 ISHLASH
+────────────────────────────────────────────────────────────────
+✅ HTTP Server (Render.com uchun):
+   • Port: 10000 (yoki PORT env var)
+   • Route: / → "Bot is running!"
+   • Route: /health → Health check
+
+✅ Polling mode:
+   • Avtomatik webhook o'chirish
+   • Long polling
+
+✅ Environment Variables:
+   • BOT_TOKEN - Bot tokeni
+   • ADMIN_ID - Admin Telegram ID
+   • EXCEL_FILE - Excel fayl nomi
+
+1️⃣8️⃣ CRON-JOB.ORG
+────────────────────────────────────────────────────────────────
+🔄 Har 5 daqiqada ping:
+   → https://your-bot.onrender.com/health
+   → Bot uxlamaydi
+   → 24/7 active
+
+════════════════════════════════════════════════════════════════
+📊 EXCEL FUNKSIYALARI
+════════════════════════════════════════════════════════════════
+
+1️⃣9️⃣ EXCEL BILAN ISHLASH
+────────────────────────────────────────────────────────────────
+✅ init_excel()
+   → CSV fayl yaratish
+   → Sarlavhalarni yozish
+
+✅ add_to_excel(request)
+   → Yangi qator qo'shish
+   → Faqat yuborilgan sertifikatlar
+
+✅ export_excel()
+   → Fayl yuklab berish
+   → UTF-8 encoding
+
+════════════════════════════════════════════════════════════════
+🎯 JAMI FUNKSIYALAR
+════════════════════════════════════════════════════════════════
+
+👤 FOYDALANUVCHI: 4 ta
+👨‍💼 ADMIN: 11 ta
+🗄️ DATABASE: 9 ta
+📊 EXCEL: 3 ta
+🔐 XAVFSIZLIK: 3 ta
+🌐 DEPLOYMENT: 2 ta
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+JAMI: 32+ FUNKSIYA ✅
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+════════════════════════════════════════════════════════════════
+⚠️ MUHIM ESLATMALAR
+════════════════════════════════════════════════════════════════
+
+📌 Render.com Free Tier:
+   • Database vaqtinchalik
+   • Muntazam /export qiling!
+   • Har hafta backup oling
+
+📌 Bot Tokeni:
+   • Hech kimga bermang!
+   • Environment variables'da saqlang
+   • GitHub'ga yuklamang (.env)
+
+📌 Admin ID:
+   • Telegram'da @userinfobot dan oling
+   • Faqat bitta admin
+
+📌 Excel Backup:
+   • Har hafta /export
+   • Kompyuterga saqlang
+   • Google Drive'ga yuklang
+
+════════════════════════════════════════════════════════════════
+✅ TAYYOR!
+════════════════════════════════════════════════════════════════
+
+Bot to'liq ishlaydi va 24/7 aktiv!
+
+Savollar uchun:
+- GitHub: github.com/abdrahmonoff/aypisertifikatbot
+- Render Docs: render.com/docs
+- Telegram Bot API: core.telegram.org/bots
+
+Omad! 🚀
